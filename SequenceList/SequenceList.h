@@ -21,15 +21,15 @@ typedef struct{
 	int listsize;
 }
 
-Status InitList_Sq(Sqlist *L);
+Status InitList_Sq(Sqlist *L);	//初始化顺序表
 
-void ClearList_Sq(SqList *L);
+void ClearList_Sq(SqList *L);	//清空顺序表
 
-void DestroyList_Sq(SqList *L);
+void DestroyList_Sq(SqList *L);	//销毁顺序表
 
-Status ListEmpty_Sq(SqList *L);
+Status ListEmpty_Sq(SqList *L);	//判空
 
-int ListLength_Sq(SqList *L);
+int ListLength_Sq(SqList *L);	//
 
 Status GetElem_Sq(SqList L, int i, LElemType_Sq *e);
 
