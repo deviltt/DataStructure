@@ -3,13 +3,13 @@
 
 #include "Union.h"
 
-void Union(SqList *La, SqList *Lb){
+void Union(SqList *La, SqList Lb){
 	int La_len, Lb_len;
 	int i;
 	LElemType_Sq e;
 
 	La_len = ListLength_Sq(*La);
-	Lb_len = ListLength_Sq(*Lb);
+	Lb_len = ListLength_Sq(Lb);
 
 	for(i = 1; i < Lb_len; i++){
 		GetElem_Sq(Lb, i, &e);
@@ -19,5 +19,7 @@ void Union(SqList *La, SqList *Lb){
 }
 
 Status equal(LElemType_Sq e1, LElemType_Sq e2){
-	return e1 == e2 ? e1 : e2;
+	return e1 == e2 ? TRUE : FALSE;
 }
+
+#endif

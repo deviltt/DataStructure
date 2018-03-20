@@ -3,7 +3,7 @@
 
 #include "../SequenceList/SequenceList.c"
 
-void Union(SqList *La, SqList *Lb);
+void Union(SqList *La, SqList Lb);
 
 Status equal(LElemType_Sq e1, LElemType_Sq e2);
 

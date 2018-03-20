@@ -8,17 +8,17 @@ void PrintElem(LElemType_Sq e){
 int main(int argc, char **argv)
 {
 	SqList La, Lb;
-	LElemType a[5] = {5, 2, 1, 3, 9};
-	LElemType b[7] = {7, 2, 6, 9, 11, 3, 10};
+	LElemType_Sq a[5] = {5, 2, 1, 3, 9};
+	LElemType_Sq b[7] = {7, 2, 6, 9, 11, 3, 10};
 	int i;
 
 	InitList_Sq(&La);
 	for(i = 1; i <= 5; i++)
-		ListInsert_Sq(&La, i, a[i-1];
+		ListInsert_Sq(&La, i, a[i-1]);
 	
 	InitList_Sq(&Lb);
-	for(i = 1; i <= 5; i++)
-		ListInsert_Sq(&Lb, i, b[i-1];
+	for(i = 1; i <= 7; i++)
+		ListInsert_Sq(&Lb, i, b[i-1]);
 
 	printf("La = ");
 	ListTraverse_Sq(La, PrintElem);
