@@ -3,7 +3,7 @@
 
 #include "SequenceList.h"
 
-Status InitList_Sq(SqList *L){
+Status InitList_Sq(SqList *L){		//线性表初始化
 	(*L).elem = (LElemType_Sq *)malloc(LIST_INIT_SIZE * sizeof(LElemType_Sq));
 	if(!(*L).elem)
 		exit(OVERFLOW);
@@ -12,11 +12,11 @@ Status InitList_Sq(SqList *L){
 	(*L).listsize = LIST_INIT_SIZE;
 }
 
-void ClearList_Sq(SqList *L){
+void ClearList_Sq(SqList *L){		//清除线性表
 	(*L).length = 0;
 }
 
-void DestroyList_Sq(SqList *L){
+void DestroyList_Sq(SqList *L){		//撤销线性表
 	free((*L).elem);
 
 	(*L).elem = NULL;
@@ -24,15 +24,15 @@ void DestroyList_Sq(SqList *L){
 	(*L).listsize = 0;
 }
 
-int ListEmpty_Sq(SqList L){
+int ListEmpty_Sq(SqList L){		//判断线性表为空
 	return L.length == 0 ? TRUE : FALSE;
 }
 
-int ListLength_Sq(SqList L){
+int ListLength_Sq(SqList L){		
 	return L.length;
 }
 
-Status GetElem_Sq(SqList L, int i, LElemType_Sq *e){
+Status GetElem_Sq(SqList L, int i, LElemType_Sq *e){		
 	if(i < 1 || i > L.length)
 		return ERROR;
 	else
@@ -41,7 +41,7 @@ Status GetElem_Sq(SqList L, int i, LElemType_Sq *e){
 	return OK;
 }
 
-int LocateElem_Sq(SqList L, LElemType_Sq e, Status(Compare)(LElemType_Sq, LElemType_Sq)){
+int LocateElem_Sq(SqList L, LElemType_Sq e, Status(Compare)(LElemType_Sq, LElemType_Sq)){	
 	int i = 1;
 
 	while(i <= L.length && !Compare(e, L.elem[i-1]))
