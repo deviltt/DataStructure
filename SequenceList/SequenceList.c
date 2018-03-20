@@ -61,7 +61,7 @@ Status PriorElem_Sq(SqList L, LElemType_Sq cur_e, LElemType_Sq *pre_e){
 			++i;
 
 		if(i < L.length){
-			*pre_e = L.elem[i-1];
+			*pre_e = L.elem[i-2];
 			return OK;
 		}
 	}
@@ -122,16 +122,16 @@ Status ListDelete_Sq(SqList *L, int i, LElemType_Sq *e){
 	p = &(*L).elem[i-1];
 	*e = *p;
 	q = (*L).elem + (*L).length - 1;
-
+/*
 	for(++p; p <= q; ++p)
 		*(p-1) = *p;	
+*/
 
-
-/*	for(p; p < q; p++)
-		*p = *(p++)	
+	for(p; p < q; p++)
+		*p = *(p + 1);	
 
 	(*L).length--;
-*/
+
 	return OK;
 }
 
