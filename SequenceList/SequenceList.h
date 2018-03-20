@@ -19,7 +19,7 @@ typedef struct{
 	LElemType_Sq *elem;
 	int length;
 	int listsize;
-}
+};
 
 Status InitList_Sq(Sqlist *L);	//初始化顺序表
 
