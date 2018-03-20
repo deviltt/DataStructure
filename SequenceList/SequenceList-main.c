@@ -11,7 +11,7 @@ void PrintElem(LElemType_Sq e)
 	printf("%d ", e);
 }
 
-int mian(int argc, char **argv){
+int mian(){
 	SqList L;
 	int i;
 	LElemType_Sq e;

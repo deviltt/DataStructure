@@ -3,7 +3,7 @@
 
 #include "SequenceList.h"
 
-Status InitList_Sq(Sqlist *L){
+Status InitList_Sq(SqList *L){
 	(*L).elem = (LElemType_Sq *)malloc(LIST_INIT_SIZE * sizeof(LElemType_Sq));
 	if(!(*L).elem)
 		exit(OVERFLOW);
@@ -16,7 +16,7 @@ void ClearList_Sq(SqList *L){
 	(*L).length = 0;
 }
 
-void DestroyList_Sq(Sqlist *L){
+void DestroyList_Sq(SqList *L){
 	free((*L).elem);
 
 	(*L).elem = NULL;
@@ -44,7 +44,7 @@ Status GetElem_Sq(SqList L, int i, LElemType_Sq *e){
 int LocateElem_Sq(SqList L, LElemType_Sq e, Status(Compare)(LElemType_Sq, LElemType_Sq)){
 	int i = 1;
 
-	while(i <= L.length && !Compare(e, L.elem[i-1])
+	while(i <= L.length && !Compare(e, L.elem[i-1]))
 		i++;
 
 	if(i <= L.length)
@@ -53,7 +53,7 @@ int LocateElem_Sq(SqList L, LElemType_Sq e, Status(Compare)(LElemType_Sq, LElemT
 		return 0;
 }
 
-Status PriorElem_Sq(SqList L, LElemType_Sq cur_e, LElemType *pre_e){
+Status PriorElem_Sq(SqList L, LElemType_Sq cur_e, LElemType_Sq *pre_e){
 	int i = 1;
 
 	if(L.elem[0] != cur_e){
@@ -69,7 +69,7 @@ Status PriorElem_Sq(SqList L, LElemType_Sq cur_e, LElemType *pre_e){
 	return ERROR;
 }
 
-Status NextElem_Sq(SqList L, LElemType_Sq cur_e, LElemType *next_e){
+Status NextElem_Sq(SqList L, LElemType_Sq cur_e, LElemType_Sq *next_e){
 	int i = 0;
 
 	while(i < L.length && L.elem[i] != cur_e)
@@ -94,7 +94,7 @@ Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e){
 		newbase = (LElemType_Sq *)realloc((*L).elem, ((*L).listsize + LISTINCREMENT) * sizeof(LElemType_Sq));
 
 		if(!newbase)
-			eixt(OVERFLOW);
+			exit(OVERFLOW);
 
 		(*L).elem = newbase;
 		(*L).listsize += LISTINCREMENT;
@@ -123,15 +123,15 @@ Status ListDelete_Sq(SqList *L, int i, LElemType_Sq *e){
 	*e = *p;
 	q = (*L).elem + (*L).length - 1;
 
-/*	for(++p; p <= q; ++p)
+	for(++p; p <= q; ++p)
 		*(p-1) = *p;	
-*/
 
-	for(p; p < q; p++)
-		*p = *p++	
+
+/*	for(p; p < q; p++)
+		*p = *(p++)	
 
 	(*L).length--;
-
+*/
 	return OK;
 }
 

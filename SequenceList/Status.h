@@ -1,4 +1,4 @@
-#ifdef STATUS_H
+#ifndef STATUS_H
 #define STATUS_H
 
 #define TRUE 		1	
@@ -22,11 +22,11 @@
 
 typedef int Status;
 
-#define PRESSENTER\
-{\
+#define PressEnter\
+{\ 
 	fflush(stdin);\
 	printf("Press Enter...");\
 	getchar();\
 	fflush(stdin);\
-}
+} 
 #endif
