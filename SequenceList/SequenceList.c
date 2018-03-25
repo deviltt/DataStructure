@@ -119,18 +119,18 @@ Status ListDelete_Sq(SqList *L, int i, LElemType_Sq *e){
 	if(i < 1 || i > (*L).length)
 		return ERROR;
 
-	p = &(*L).elem[i-1];
-	*e = *p;
-	q = (*L).elem + (*L).length - 1;
+	p = &(*L).elem[i-1];	//p标记要删除的位置，以保存该位置的值
+	*e = *p;	//用e保存该位置的值
+	q = (*L).elem + (*L).length - 1;	//q为指向该线性表最后一个元素的指针
 /*
 	for(++p; p <= q; ++p)
 		*(p-1) = *p;	
 */
 
 	for(p; p < q; p++)
-		*p = *(p + 1);	
+		*p = *(p + 1);		//将位置i的元素删除后每个元素前移一位
 
-	(*L).length--;
+	(*L).length--;	//线性表的总长度减一
 
 	return OK;
 }
