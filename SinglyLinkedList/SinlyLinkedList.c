@@ -230,3 +230,65 @@ Status ListTraverse_L(LinkList L, void (Visit)(LElemType_L))
 
 	return OK;
 }
+
+Status CreateList_HL(FILE *fp, LinkList *L, int n)
+{
+	int i;
+	LinkList p;
+	LElemType_L tmp;
+
+	*L = (LinkList)malloc(sizeof(LNode));
+
+	if(!(*L))
+		exit(OVERFLOW);
+	(*L)->next = NULL;		//建立头节点
+
+	for(i = 1; i < n; i++){
+		if(Scanf(fp, "%d", &tmp) == 1){
+			p = (LinkList)malloc(sizeof(LNode));
+			if(!p)
+				exit(OVERFLOW);
+			p->data = tmp;
+//			p->next = (*L)->next;
+			p->next = NULL;
+			(*L)->next = p;
+		}
+		else
+			return ERROR;
+	}
+
+	return OK;
+}
+
+Status CreateList_TL(FILE *fp, LinkList *L, int n)
+{
+	int i;
+	LinkList p, q;
+	LElemType_L tmp;
+
+	*L = (LinkList)malloc(sizeof(LNode));
+	
+	if(!(*L))
+		exit(OVERFLOW);
+	(*L)->next = NULL;
+
+	for(i = 1, q = *L; i <= n; ++i){
+		if(Scanf(fp, "%d", &tmp) == 1){
+			p = (LinkList)malloc(sizeof(LNode));
+			if(!p)
+				exit(OVERFLOW);
+			p->data = tmp;
+			q->next = p;
+			q = p;
+//			q = q->next;
+		}
+		else
+			return ERROR;
+	}
+
+	q->next = NULL;
+	
+	return OK;
+}
+
+#endif
