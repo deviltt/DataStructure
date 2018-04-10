@@ -1,8 +1,9 @@
 #ifndef DUALCYCLELINKEDLIST_H
 #define DUALCYCLELINKEDLIST_H
 
+#include <stdio.h>
 #include <stdlib.h>
-#include "../introduction/Status.h"
+#include "Status.h"
 
 typedef int LElemType_DC;
 typedef struct DuLNode{
@@ -14,6 +15,8 @@ typedef struct DuLNode{
 typedef DuLNode *DuLinkList;
 
 Status InitList_DuL(DuLinkList *L);
+
+Status ClearList_DuL(DuLinkList L);
 
 void DestroyList_DuL(DuLinkList *L);
 
