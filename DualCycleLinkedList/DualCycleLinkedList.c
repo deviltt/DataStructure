@@ -1,5 +1,5 @@
-#ifndef DUALCYCLELINKEDLIST_H
-#define DUALCYCLELINKEDLIST_H
+#ifndef DUALCYCLELINKEDLIST_C
+#define DUALCYCLELINKEDLIST_C
 
 #include "DualCycleLinkedList.h"
 
@@ -13,7 +13,7 @@ Status InitList_DuL(DuLinkList *L)
 	(*L)->next = (*L)->prior = *L;
 }
 
-Status ClearList_Dul(DuLinkList L)
+Status ClearList_DuL(DuLinkList L)
 {
 	DuLinkList p, q;
 
@@ -76,8 +76,8 @@ Status GetElem_DuL(DuLinkList L, int i, LElemType_DC *e)
 		p = L->next;
 */
 
-		count = 0;
-		p = L;	
+		count = 1;
+		p = L->next;	
 			
 		while(p != L && count < i){
 			count++;
@@ -114,7 +114,7 @@ int LocateElem_DuL(DuLinkList L, LElemType_DC e, Status (Compare)(ElemType_DC, E
 	return 0;
 }
 
-Status PriorElem_DuL(DuLinkList L, LElemType_DC cur_e, LElmeType_DC *pre_e)
+Status PriorElem_DuL(DuLinkList L, LElemType_DC cur_e, LElemType_DC *pre_e)
 {
 	DuLinkList p;
 

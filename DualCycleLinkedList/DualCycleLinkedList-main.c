@@ -95,7 +95,7 @@ int main()
 	{
 		DuLinkList p;
 		p = GetElemPtr_DuL(L, 3);
-		printf("链表第 3 个结点的指针为 0x%x, 其对应的值为 \"%d\" \n", p, *p);
+		printf("链表第 3 个结点的指针为 0x%x, 其对应的值为 \"%d\" \n", p, p->data);
 		printf("\n");
 	}
 	PressEnter;
@@ -104,7 +104,7 @@ int main()
 	{
 		printf("清空 L 前: ");
 		ListEmpty_DuL(L) ? printf(" L 为空!!\n") : printf(" L 不为空!\n");
-		ClearList_Dul(L);
+		ClearList_DuL(L);
 		printf("清空 L 后: ");
 		ListEmpty_DuL(L) ? printf(" L 为空!!\n") : printf(" L 不为空!\n");
 		printf("\n");

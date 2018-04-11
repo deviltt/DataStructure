@@ -3,9 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Status.h"
+#include "./Status.h"
 
 typedef int LElemType_DC;
+
 typedef struct DuLNode{
 	LElemType_DC data;
 	struct DuLNode *prior;
@@ -13,6 +14,8 @@ typedef struct DuLNode{
 }DuLNode;
 
 typedef DuLNode *DuLinkList;
+
+//typedef int Status;
 
 Status InitList_DuL(DuLinkList *L);
 
@@ -32,7 +35,7 @@ Status PriorElem_DuL(DuLinkList L, LElemType_DC cur_e, LElemType_DC *pre_e);
 
 Status NextElem_DuL(DuLinkList L, LElemType_DC cur_e, LElemType_DC *next_e);
 
-DuLinkList GetElemPtr(DuLinkList L, int i);
+DuLinkList GetElemPtr_DuL(DuLinkList L, int i);
 
 Status ListInsert_DuL(DuLinkList L, int i, LElemType_DC e);
 
